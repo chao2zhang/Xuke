@@ -5,7 +5,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = ("OssLicenseAttribution")
+rootProject.name = ("xuke")
 
 include(":example")
 includeBuild("plugin-build")
