@@ -11,7 +11,8 @@ object PluginBundle {
     const val DESCRIPTION = "A Gradle plugin to collect software licenses from dependencies"
     const val DISPLAY_NAME = "A Gradle plugin to collect software licenses from dependencies"
     val TAGS = listOf(
-        "plugin"
+        "plugin",
+        "gradle",
     )
 }
 
