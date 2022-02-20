@@ -27,7 +27,6 @@ gradlePlugin {
     }
 }
 
-// Configuration Block for the Plugin Marker artifact on Plugin Central
 pluginBundle {
     website = PluginBundle.WEBSITE
     vcsUrl = PluginBundle.VCS
