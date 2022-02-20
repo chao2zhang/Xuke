@@ -3,7 +3,7 @@ package io.github.chao2zhang
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-const val EXTENSION_NAME = "ossLicense"
+const val EXTENSION_NAME = "xuke"
 const val TASK_NAME = "xuke"
 
 abstract class XukePlugin : Plugin<Project> {
