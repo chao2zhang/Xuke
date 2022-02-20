@@ -7,4 +7,4 @@ pluginManagement {
 
 rootProject.name = ("xuke-plugin")
 
-include(":api", ":plugin")
+include(":plugin")

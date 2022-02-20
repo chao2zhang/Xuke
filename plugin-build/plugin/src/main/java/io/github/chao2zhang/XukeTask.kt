@@ -1,5 +1,7 @@
 package io.github.chao2zhang
 
+import io.github.chao2zhang.api.DependencyData
+import io.github.chao2zhang.api.LicenseData
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
 import org.gradle.api.artifacts.ResolvedArtifact
