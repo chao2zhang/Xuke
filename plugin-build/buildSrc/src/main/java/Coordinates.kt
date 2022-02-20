@@ -13,6 +13,8 @@ object PluginBundle {
     val TAGS = listOf(
         "plugin",
         "gradle",
+        "license",
+        "oss",
     )
 }
 

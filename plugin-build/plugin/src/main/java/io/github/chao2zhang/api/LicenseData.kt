@@ -1,4 +1,4 @@
-package io.github.chao2zhang
+package io.github.chao2zhang.api
 
 data class LicenseData(
     val name: String,

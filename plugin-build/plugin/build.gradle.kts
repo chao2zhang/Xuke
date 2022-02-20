@@ -7,7 +7,6 @@ plugins {
 dependencies {
     implementation(kotlin("stdlib-jdk7"))
     implementation(gradleApi())
-    implementation(project(":api"))
 
     testImplementation(TestingLib.JUNIT)
 }
