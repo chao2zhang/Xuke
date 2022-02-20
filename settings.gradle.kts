@@ -5,7 +5,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = ("kotlin-gradle-plugin-template")
+rootProject.name = ("OssLicenseAttribution")
 
 include(":example")
 includeBuild("plugin-build")
