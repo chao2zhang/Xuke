@@ -8,7 +8,7 @@
 Displaying used open source libraries and their licenses not only shows appreciations for the effort of library authors, but they could be also license requirements of those libraries. Apps are responsible for appropriately displaying the notices for the open source libraries, and this Gradle plugin automates this process by collecting the licenses from libraries and generates the source code for apps to display.
 
 ## Background
-Xuke comes from 许可 (License in English)
+Xuke comes from 许可 (License in Chinese)
 
 ## Tutorial
 Add the following scripts to your Gradle scripts:
