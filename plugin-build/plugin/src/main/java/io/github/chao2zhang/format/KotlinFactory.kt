@@ -35,9 +35,9 @@ object KotlinFactory : FormatterFactory {
     private fun Map.Entry<Dependency, List<License>>.format() =
         "${key.format()} to ${value.format()}"
 
-    private fun Dependency.format() = "Dependency(group=\"$group\", name=\"$name\", version=\"$version\")"
+    private fun Dependency.format() = "Dependency(group = \"$group\", name = \"$name\", version = \"$version\")"
 
-    private fun License.format() = "License(name=\"$name\", url=\"$url\", distribution=\"${distribution}\", comments=\"${comments}\")"
+    private fun License.format() = "License(name = \"$name\", url = \"$url\", distribution = \"${distribution}\", comments = \"${comments}\")"
 
     private fun List<License>.format() = "listOf(" + joinToString(separator = ",", transform = {it.format()}) + ")"
 }

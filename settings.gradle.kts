@@ -7,5 +7,5 @@ pluginManagement {
 
 rootProject.name = ("xuke")
 
-include(":example")
+include(":example-jvm")
 includeBuild("plugin-build")
