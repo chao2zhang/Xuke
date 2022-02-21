@@ -39,5 +39,5 @@ object KotlinFactory : FormatterFactory {
 
     private fun License.format() = "License(name = \"$name\", url = \"$url\", distribution = \"${distribution}\", comments = \"${comments}\")"
 
-    private fun List<License>.format() = "listOf(" + joinToString(separator = ",", transform = {it.format()}) + ")"
+    private fun List<License>.format() = "listOf(" + joinToString(separator = ",", transform = { it.format() }) + ")"
 }

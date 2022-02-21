@@ -70,11 +70,16 @@ abstract class XukeTask : DefaultTask() {
 
     private fun writeLicenses(licenseData: LicenseData) {
         val outputFile = outputFileProp.get().asFile
-        outputFile.writeText(FormatterFactory
-            .fromFileExtension(outputFile.extension)
-            .format(licenseData, FormatOptions(
-                packagePath = outputPackage.getOrElse("")
-            )))
+        outputFile.writeText(
+            FormatterFactory
+                .fromFileExtension(outputFile.extension)
+                .format(
+                    licenseData,
+                    FormatOptions(
+                        packagePath = outputPackage.getOrElse("")
+                    )
+                )
+        )
         logger.info(licenseData.toList().joinToString(separator = "\n"))
     }
 
