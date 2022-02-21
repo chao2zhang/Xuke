@@ -11,7 +11,9 @@ abstract class XukePlugin : Plugin<Project> {
         val extension = project.extensions.create(EXTENSION_NAME, XukeExtension::class.java)
 
         project.tasks.register(TASK_NAME, XukeTask::class.java) { task ->
-            task.configurationsProperty.convention(extension.configurations)
+            task.buildConfigurationsProp.convention(extension.configurations)
+            task.outputFileProp.convention(extension.outputFile)
+            task.outputPackage.convention(extension.outputPackage)
         }
     }
 }

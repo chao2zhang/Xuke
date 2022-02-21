@@ -10,7 +10,6 @@
               <build path="$PROJECT_DIR$/plugin-build" name="xuke-plugin">
                 <projects>
                   <project path="$PROJECT_DIR$/plugin-build" />
-                  <project path="$PROJECT_DIR$/plugin-build/api" />
                   <project path="$PROJECT_DIR$/plugin-build/plugin" />
                 </projects>
               </build>
@@ -25,7 +24,6 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/example" />
             <option value="$PROJECT_DIR$/plugin-build" />
-            <option value="$PROJECT_DIR$/plugin-build/api" />
             <option value="$PROJECT_DIR$/plugin-build/buildSrc" />
             <option value="$PROJECT_DIR$/plugin-build/plugin" />
           </set>

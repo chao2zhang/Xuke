@@ -10,6 +10,12 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        java.srcDir("build/generated")
+    }
+}
+
 dependencies {
     implementation(kotlin("stdlib"))
 }
@@ -25,5 +31,6 @@ compileTestKotlin.kotlinOptions {
 }
 
 configure<XukeExtension> {
-    configurations = listOf("runtimeClasspath")
+    configurations.set(listOf("runtimeClasspath"))
+    outputPackage.set("io.github.chao2zhang.example")
 }
