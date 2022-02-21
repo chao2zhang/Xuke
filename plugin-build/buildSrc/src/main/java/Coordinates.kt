@@ -1,7 +1,7 @@
 object PluginCoordinates {
     const val ID = "io.github.chao2zhang.xuke"
     const val GROUP = "io.github.chao2zhang"
-    const val VERSION = "0.0.6"
+    const val VERSION = "0.0.7"
     const val IMPLEMENTATION_CLASS = "io.github.chao2zhang.XukePlugin"
 }
 
