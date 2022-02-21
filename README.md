@@ -30,3 +30,5 @@ configure<XukeExtension> {
     outputPackage.set("io.github.chao2zhang.example")
 }
 ```
+
+Now you can run Gradle task `xuke` to generate the sources.
