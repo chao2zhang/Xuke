@@ -13,7 +13,7 @@ Xuke comes from 许可 (License in Chinese)
 ## Tutorial
 Add the following scripts to your Gradle scripts:
 
-```
+```kotlin
 plugins {
     id("io.github.chao2zhang.xuke")
 }
