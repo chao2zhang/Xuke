@@ -5,10 +5,6 @@ plugins {
     id("io.github.chao2zhang.xuke")
 }
 
-repositories {
-    mavenCentral()
-}
-
 sourceSets {
     main {
         java.srcDir("build/generated")

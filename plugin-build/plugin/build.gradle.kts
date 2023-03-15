@@ -1,13 +1,13 @@
 plugins {
     kotlin("jvm")
-    id("java-gradle-plugin")
-    id("com.gradle.plugin-publish")
+    `java-gradle-plugin`
+    alias(libs.plugins.pluginPublish)
 }
 
 dependencies {
     compileOnly(gradleApi())
 
-    testImplementation(TestingLib.JUNIT)
+    testImplementation(libs.junit4)
 }
 
 java {
@@ -16,28 +16,34 @@ java {
     }
 }
 
-group = PluginCoordinates.GROUP
-version = PluginCoordinates.VERSION
+group = "io.github.chao2zhang"
+version = "0.0.11"
+
+val pluginId = "io.github.chao2zhang.xuke"
 
 gradlePlugin {
-    website.set(PluginBundle.WEBSITE)
-    vcsUrl.set(PluginBundle.VCS)
+    website.set("https://github.com/chao2zhang/Xuke")
+    vcsUrl.set("https://github.com/chao2zhang/Xuke")
 
     plugins {
-        create(PluginCoordinates.ID) {
-            id = PluginCoordinates.ID
-            implementationClass = PluginCoordinates.IMPLEMENTATION_CLASS
-            description = PluginBundle.DESCRIPTION
-            version = PluginCoordinates.VERSION
-            tags.set(PluginBundle.TAGS)
-        }
-        getByName(PluginCoordinates.ID) {
-            displayName = PluginBundle.DISPLAY_NAME
+        create(pluginId) {
+            id = pluginId
+            implementationClass = "io.github.chao2zhang.XukePlugin"
+            displayName = "A Gradle plugin to collect software licenses from dependencies"
+            description = "A Gradle plugin to collect software licenses from dependencies"
+            tags.set(
+                listOf(
+                    "plugin",
+                    "gradle",
+                    "license",
+                    "oss",
+                ),
+            )
         }
     }
 }
 
-tasks.create("setupPluginUploadFromEnvironment") {
+tasks.register("setupPluginUploadFromEnvironment") {
     doLast {
         val key = System.getenv("GRADLE_PUBLISH_KEY")
         val secret = System.getenv("GRADLE_PUBLISH_SECRET")
