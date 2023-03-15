@@ -12,25 +12,15 @@ jobs:
   gradle:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
     runs-on: ${{ matrix.os }}
     env:
       GRADLE_PUBLISH_KEY: ${{ secrets.GRADLE_PUBLISH_KEY }}
       GRADLE_PUBLISH_SECRET: ${{ secrets.GRADLE_PUBLISH_SECRET }}
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-      - name: Cache Gradle Caches
-        uses: actions/cache@v3
-        with:
-          path: ~/.gradle/caches/
-          key: cache-gradle-cache
-      - name: Cache Gradle Wrapper
-        uses: actions/cache@v3
-        with:
-          path: ~/.gradle/wrapper/
-          key: cache-gradle-wrapper
+      - uses: actions/checkout@v3
+      - uses: gradle/gradle-build-action@v2
       - name: Run Gradle tasks
         run: ./gradlew preMerge --continue
       - name: Stop Gradle
