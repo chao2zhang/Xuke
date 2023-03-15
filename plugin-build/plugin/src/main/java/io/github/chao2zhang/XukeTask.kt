@@ -107,7 +107,7 @@ abstract class XukeTask : DefaultTask() {
                         name = licenseNode.namedChildTextContentOrEmpty("name"),
                         url = licenseNode.namedChildTextContentOrEmpty("url"),
                         distribution = licenseNode.namedChildTextContentOrEmpty("distribution"),
-                        comments = licenseNode.namedChildTextContentOrEmpty("comments"),
+                        comments = licenseNode.namedChildTextContentOrEmpty("comments")
                     )
                 )
             }

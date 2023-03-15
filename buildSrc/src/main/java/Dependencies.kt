@@ -4,7 +4,7 @@ object Versions {
 
 object BuildPluginsVersion {
     const val KOTLIN = "1.8.10"
-    const val KTLINT = "10.0.0"
+    const val KTLINT = "11.3.1"
 }
 
 object TestingLib {

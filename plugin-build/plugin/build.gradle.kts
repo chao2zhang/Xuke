@@ -5,43 +5,35 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
-    implementation(gradleApi())
+    compileOnly(gradleApi())
 
     testImplementation(TestingLib.JUNIT)
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
 }
 
+group = PluginCoordinates.GROUP
+version = PluginCoordinates.VERSION
+
 gradlePlugin {
+    website.set(PluginBundle.WEBSITE)
+    vcsUrl.set(PluginBundle.VCS)
+
     plugins {
         create(PluginCoordinates.ID) {
             id = PluginCoordinates.ID
             implementationClass = PluginCoordinates.IMPLEMENTATION_CLASS
+            description = PluginBundle.DESCRIPTION
             version = PluginCoordinates.VERSION
+            tags.set(PluginBundle.TAGS)
         }
-    }
-}
-
-pluginBundle {
-    website = PluginBundle.WEBSITE
-    vcsUrl = PluginBundle.VCS
-    description = PluginBundle.DESCRIPTION
-    tags = PluginBundle.TAGS
-
-    plugins {
         getByName(PluginCoordinates.ID) {
             displayName = PluginBundle.DISPLAY_NAME
         }
-    }
-
-    mavenCoordinates {
-        groupId = PluginCoordinates.GROUP
-        artifactId = PluginCoordinates.ID
-        version = PluginCoordinates.VERSION
     }
 }
 
