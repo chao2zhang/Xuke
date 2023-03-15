@@ -24,6 +24,8 @@ gradleEnterprise {
     }
 }
 
+enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
+
 rootProject.name = ("xuke")
 
 include(":example-jvm")
