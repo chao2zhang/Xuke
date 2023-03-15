@@ -2,7 +2,7 @@ import io.github.chao2zhang.XukeExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.31"
+    kotlin("jvm") version "1.8.10"
     id("io.github.chao2zhang.xuke")
 }
 
