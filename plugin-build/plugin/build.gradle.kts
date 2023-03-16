@@ -1,51 +1,49 @@
 plugins {
     kotlin("jvm")
-    id("java-gradle-plugin")
-    id("com.gradle.plugin-publish")
+    `java-gradle-plugin`
+    alias(libs.plugins.pluginPublish)
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
-    implementation(gradleApi())
+    compileOnly(gradleApi())
 
-    testImplementation(TestingLib.JUNIT)
+    testImplementation(libs.junit4)
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
 }
+
+group = "io.github.chao2zhang"
+version = "0.0.11"
+
+val pluginId = "io.github.chao2zhang.xuke"
 
 gradlePlugin {
+    website.set("https://github.com/chao2zhang/Xuke")
+    vcsUrl.set("https://github.com/chao2zhang/Xuke")
+
     plugins {
-        create(PluginCoordinates.ID) {
-            id = PluginCoordinates.ID
-            implementationClass = PluginCoordinates.IMPLEMENTATION_CLASS
-            version = PluginCoordinates.VERSION
+        create(pluginId) {
+            id = pluginId
+            implementationClass = "io.github.chao2zhang.XukePlugin"
+            displayName = "A Gradle plugin to collect software licenses from dependencies"
+            description = "A Gradle plugin to collect software licenses from dependencies"
+            tags.set(
+                listOf(
+                    "plugin",
+                    "gradle",
+                    "license",
+                    "oss",
+                ),
+            )
         }
     }
 }
 
-pluginBundle {
-    website = PluginBundle.WEBSITE
-    vcsUrl = PluginBundle.VCS
-    description = PluginBundle.DESCRIPTION
-    tags = PluginBundle.TAGS
-
-    plugins {
-        getByName(PluginCoordinates.ID) {
-            displayName = PluginBundle.DISPLAY_NAME
-        }
-    }
-
-    mavenCoordinates {
-        groupId = PluginCoordinates.GROUP
-        artifactId = PluginCoordinates.ID
-        version = PluginCoordinates.VERSION
-    }
-}
-
-tasks.create("setupPluginUploadFromEnvironment") {
+tasks.register("setupPluginUploadFromEnvironment") {
     doLast {
         val key = System.getenv("GRADLE_PUBLISH_KEY")
         val secret = System.getenv("GRADLE_PUBLISH_SECRET")

@@ -1,13 +1,6 @@
-import io.github.chao2zhang.XukeExtension
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-    kotlin("jvm") version "1.5.31"
+    kotlin("jvm") version "1.8.10"
     id("io.github.chao2zhang.xuke")
-}
-
-repositories {
-    mavenCentral()
 }
 
 sourceSets {
@@ -16,22 +9,17 @@ sourceSets {
     }
 }
 
-dependencies {
-    implementation(kotlin("stdlib"))
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
 }
 
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
-}
-compileKotlin.dependsOn(tasks.xuke)
-
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.8"
+tasks.compileKotlin.configure {
+    dependsOn(tasks.xuke)
 }
 
-configure<XukeExtension> {
+xuke {
     configurations.set(listOf("runtimeClasspath"))
     outputPackage.set("io.github.chao2zhang.example")
 }

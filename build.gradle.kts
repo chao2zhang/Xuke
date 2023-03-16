@@ -1,17 +1,6 @@
 plugins {
-    kotlin("jvm") version BuildPluginsVersion.KOTLIN apply false
-    id("org.jlleitschuh.gradle.ktlint") version BuildPluginsVersion.KTLINT
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-tasks.register("clean", Delete::class.java) {
-    delete(rootProject.buildDir)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktlint)
 }
 
 tasks.register("reformatAll") {

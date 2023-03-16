@@ -96,7 +96,6 @@ abstract class XukeTask : DefaultTask() {
             ?.safeAs<ResolvedArtifactResult>()
             ?.file
 
-    @OptIn(ExperimentalStdlibApi::class)
     private fun extractLicenses(pomFile: File): List<License> = buildList {
         val pomDoc = documentFactory.newDocumentBuilder().parse(pomFile).documentElement
         val licenseNodes = pomDoc.getElementsByTagName("licenses").singleOrNull()?.childNodes
@@ -107,7 +106,7 @@ abstract class XukeTask : DefaultTask() {
                         name = licenseNode.namedChildTextContentOrEmpty("name"),
                         url = licenseNode.namedChildTextContentOrEmpty("url"),
                         distribution = licenseNode.namedChildTextContentOrEmpty("distribution"),
-                        comments = licenseNode.namedChildTextContentOrEmpty("comments"),
+                        comments = licenseNode.namedChildTextContentOrEmpty("comments")
                     )
                 )
             }
