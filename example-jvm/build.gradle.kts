@@ -1,5 +1,3 @@
-import io.github.chao2zhang.XukeExtension
-
 plugins {
     kotlin("jvm") version "1.8.10"
     id("io.github.chao2zhang.xuke")
@@ -21,7 +19,7 @@ tasks.compileKotlin.configure {
     dependsOn(tasks.xuke)
 }
 
-configure<XukeExtension> {
+xuke {
     configurations.set(listOf("runtimeClasspath"))
     outputPackage.set("io.github.chao2zhang.example")
 }

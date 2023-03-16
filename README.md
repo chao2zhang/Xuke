@@ -19,8 +19,7 @@ plugins {
     id("io.github.chao2zhang.xuke")
 }
 
-configure<XukeExtension> {
-
+xuke {
     // The Gradle build configurations from which we collect dependencies
     configurations.set(listOf("runtimeClasspath"))
 

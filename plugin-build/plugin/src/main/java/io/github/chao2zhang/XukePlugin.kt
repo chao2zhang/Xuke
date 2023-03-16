@@ -6,6 +6,7 @@ import org.gradle.api.Project
 const val EXTENSION_NAME = "xuke"
 const val TASK_NAME = "xuke"
 
+@Suppress("unused")
 abstract class XukePlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val extension = project.extensions.create(EXTENSION_NAME, XukeExtension::class.java)
